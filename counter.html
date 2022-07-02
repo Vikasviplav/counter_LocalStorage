@@ -1,0 +1,40 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+
+<body>
+    <button id="like">like</button>
+    <button id="dislike">dislike</button>
+    <h1></h1>
+    
+    <script>
+        var count = 0
+
+        if (localStorage.getItem("count") == undefined)
+            count = 0
+        else
+            count = JSON.parse(localStorage.getItem("count"))
+        document.querySelector("h1").innerText = count
+        document.querySelector("#like").addEventListener("click", fun1)
+        function fun1() {
+            count++
+            document.querySelector("h1").innerText = count;
+            localStorage.setItem("count", JSON.stringify(count))
+
+        }
+        document.querySelector("#dislike").addEventListener("click", fun2)
+        function fun2() {
+            count--
+            document.querySelector("h1").innerText = count;
+            localStorage.setItem("count", JSON.stringify(count))
+
+        }
+    </script>
+</body>
+
+</html>
