@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        width:400px;
+        margin:auto;
+        padding: 20px 40px;
+        }
+    #box>form>input{
+        height:40px;
+        width: 400px;
+        font-size: 15px;
+        color:grey;
+        margin: 10px 0px 20px 0px;
+        border-radius: 10px;
+        border:1px solid slategray
+    }
+    
+    #box>h1,p{
+        text-align: center;
+    }
+    #img{
+        display: flex;
+        justify-content: center;
+        margin: 30px 0px;
+    }
+    #box #submit{
+        color:white;
+        background-color: blue;
+        cursor:pointer;
+        
+    }
+    </style>
+</head>
+<body>
+    <div id="img">
+        <img src="https://sso.masaischool.com/brand_dark.svg">
+    </div>
+    
+    <div id="box">
+    
+    <h1>Sign Up</h1>
+    <form>
+        
+        <label>Full name</label>
+        <br>
+        <input id="name" type="text" placeholder="Enter your full name" value="">
+        <br>
+        <label>Email</label>
+        <br>
+        <input id="email" type="email" placeholder="Enter Email" value="">
+        <br>
+        <label>Password</label>
+        <br>
+        <input id="password" type="password" placeholder="Enter Password" value="">
+        <br>
+        <p>By signing up, I accept the Masai School <span>Term of service</span> and acknowledge the <span>Privacy policy</span></p>
+        <br>
+        <input id="submit" type="submit" value="Sign up"
+        <br>
+        <p>Already have an account? <a href="signin_ls.html">Sign in</a></p>
+
+    </form>
+</div>
+</body>
+<script>
+    var arr = JSON.parse(localStorage.getItem("array")) || []
+    document.querySelector("form").addEventListener("submit",myfun)
+    function myfun(){
+        event.preventDefault();
+        
+        var obj = {
+            name: document.querySelector("#name").value,
+            email : document.querySelector("#email").value,
+            password : document.querySelector("#password").value
+        }
+        console.log(obj)
+        arr.push(obj)
+        localStorage.setItem("array",JSON.stringify(arr))
+
+    }
+</script>
+</html>
